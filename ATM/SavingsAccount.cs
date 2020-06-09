@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace ATM
 {
     public class SavingsAccount
@@ -9,10 +8,21 @@ namespace ATM
         private decimal _balance;
         #endregion
 
-        #region Propetys
+        #region Propetys        
+        /// <summary>
+        /// Gets or sets the owner.
+        /// </summary>
+        /// <value>
+        /// The owner.
+        /// </value>
         public string Owner { get; set; }
 
-        //Read only propety for de balance
+        /// <summary>
+        /// Gets the balance.
+        /// </summary>
+        /// <value>
+        /// The balance.
+        /// </value>
         public decimal Balance
         {
             get
@@ -22,15 +32,20 @@ namespace ATM
         }
         #endregion
 
-        #region Constructers
-        // first constructor zero parameters create an object with second
-        // constuctor that has defuald values
+        #region Constructers       
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SavingsAccount"/> class.
+        /// </summary>
         public SavingsAccount() : this ("John doe", 10)
 
         {
 
         }
-        //Second constructer creates an object with 2 parameters
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SavingsAccount"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="amount">The amount.</param>
         public SavingsAccount(string name, decimal amount)
         {
             Owner = name;
@@ -39,8 +54,12 @@ namespace ATM
         }
         #endregion
 
-        #region Methods
-        //Makes a deposit to account balance
+        #region Methods        
+        /// <summary>
+        /// Makes the deposit.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
+        /// <exception cref="Exception">Amount of deposit must be positive</exception>
         public void MakeDeposit(decimal amount)
         {
 
@@ -50,7 +69,12 @@ namespace ATM
             }
             _balance += amount;
         }
-        //Makes withdrawles from account balance
+        /// <summary>
+        /// Makes the withdrawal.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
+        /// <exception cref="Exception">Amount of withdrawal must be positive</exception>
+        /// <exception cref="InvalidOperationException">Not sufficient funds for this withdrawal</exception>
         public void MakeWithdrawal(decimal amount)
         {
             if (amount <= 0)
@@ -64,7 +88,10 @@ namespace ATM
             _balance -= amount;
 
         }
-        //Calcutates interest over the actual balance
+        /// <summary>
+        /// Interests this instance.
+        /// </summary>
+        /// <returns></returns>
         public decimal Interest()
         {
             decimal rate = _balance / 100;

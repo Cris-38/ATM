@@ -5,13 +5,26 @@ namespace ATM
     public class CheckingAccount
     {
         #region Fields
-        private decimal _balance; 
+        private decimal _balance;
         #endregion
 
         #region propetys
+
+        /// <summary>
+        /// Gets or sets the owner.
+        /// </summary>
+        /// <value>
+        /// The owner.
+        /// </value>
         public string Owner { get; set; }
 
-        //Read only propety for de balance
+
+        /// <summary>
+        /// Gets the balance.
+        /// </summary>
+        /// <value>
+        /// The balance.
+        /// </value>
         public decimal Balance 
         {
             get
@@ -21,14 +34,20 @@ namespace ATM
         }
         #endregion
 
-        #region Constructors
-        // first constructor zero parameters create an object with second
-        // constuctor that has defuald values
+        #region Constructors        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CheckingAccount"/> class.
+        /// </summary>
         public CheckingAccount() : this("John Doe", 10)
         {
 
         }
-        //Second constructer creates an object with 2 parameters 
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CheckingAccount"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="initialBalance">The initial balance.</param>
         public CheckingAccount(string name, decimal initialBalance)
         {
             Owner = name;
@@ -37,8 +56,12 @@ namespace ATM
         }
         #endregion
 
-        #region Methods
-        //Makes a deposit to account balance
+        #region Methods        
+        /// <summary>
+        /// Makes the deposit.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
+        /// <exception cref="Exception">Amount of deposit must be positive</exception>
         public void MakeDeposit(decimal amount)
         {
             if (amount <= 0)
@@ -47,7 +70,12 @@ namespace ATM
             }
             _balance += amount;
         }
-        //Makes withdrawles from account balance
+        /// <summary>
+        /// Makes the withdrawal.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
+        /// <exception cref="Exception">Amount of withdrawal must be positive</exception>
+        /// <exception cref="InvalidOperationException">Not sufficient funds for this withdrawal</exception>
         public void MakeWithdrawal(decimal amount)
         {
             if (amount <= 0)
@@ -61,7 +89,5 @@ namespace ATM
             _balance -= amount;
         }
         #endregion
-
-
     }
 }
