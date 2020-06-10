@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace ATM
@@ -42,7 +41,6 @@ namespace ATM
                             }
                             catch (Exception ex)
                             {
-
                                 Console.WriteLine(ex.Message);
                             }
                         }
@@ -55,12 +53,10 @@ namespace ATM
                             }
                             catch (Exception ex)
                             {
-
                                 Console.WriteLine(ex.Message);
                             }
                         }
-                        Console.WriteLine($"Balance Checkings Account: { account1.Balance:c}");
-                        Console.WriteLine($"Balance Savings Account: {account2.Balance:c}");
+                        DisplayBalance(account1.Balance, account2.Balance);
                         break;
                     case "W":
                         Console.Write("Withdraw from: (1)Checking or (2)Savings? ");
@@ -76,7 +72,6 @@ namespace ATM
                             }
                             catch (Exception ex)
                             {
-
                                 Console.WriteLine(ex.Message);
                             }
 
@@ -90,7 +85,6 @@ namespace ATM
                             }
                             catch (Exception ex)
                             {
-
                                 Console.WriteLine(ex.Message);
                             }
                         }
@@ -115,7 +109,6 @@ namespace ATM
                             }
                             catch (Exception ex)
                             {
-
                                 Console.WriteLine(ex.Message);
                             }
                         }
@@ -129,7 +122,6 @@ namespace ATM
                             }
                             catch (Exception ex)
                             {
-
                                 Console.WriteLine(ex.Message);
                             }
                         }
