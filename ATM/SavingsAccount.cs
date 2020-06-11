@@ -37,7 +37,6 @@ namespace ATM
         /// Initializes a new instance of the <see cref="SavingsAccount"/> class.
         /// </summary>
         public SavingsAccount() : this ("John doe", 10)
-
         {
 
         }
@@ -50,7 +49,6 @@ namespace ATM
         {
             Owner = name;
             MakeDeposit(amount);
-
         }
         #endregion
 
@@ -62,7 +60,6 @@ namespace ATM
         /// <exception cref="Exception">Amount of deposit must be positive</exception>
         public void MakeDeposit(decimal amount)
         {
-
             if (amount <= 0)
             {
                 throw new Exception("Amount of deposit must be positive");
@@ -86,7 +83,6 @@ namespace ATM
                 throw new InvalidOperationException("Not sufficient funds for this withdrawal");
             }
             _balance -= amount;
-
         }
         /// <summary>
         /// Interests this instance.
